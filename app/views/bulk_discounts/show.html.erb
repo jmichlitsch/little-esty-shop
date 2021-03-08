@@ -3,3 +3,4 @@
   <p>Percent Off: <%= @discount.percent_off %></p>
   <p>Items Required: <%= @discount.item_quantity %></p>
 </section>
+<%= link_to "Edit Discount", edit_merchant_bulk_discount_path(params[:merchant_id],@discount.id) %>
