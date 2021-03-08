@@ -35,4 +35,12 @@ describe "merchant bulk discounts index page" do
     click_on "Edit Discount"
     expect(current_path).to eq(edit_merchant_bulk_discount_path(@merchant.id,@discounts[0].id))
   end
+
+  it "has a link to delete the discount next to each discount which disables it" do
+    @discounts.each do |discount|
+      within("#discount-#{discount.id}") do
+        click_on "Delete Discount"
+      end
+    end
+  end
 end
