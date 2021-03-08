@@ -85,7 +85,7 @@ RSpec.describe "Merchant Dashboard" do
     end
 
     it "link to merchant's discounts index" do
-      visit dashboard_merchant_path(@merchant1)
+      visit "/merchant/#{@merchant1.id}/dashboard"
 
       click_link "My Discounts"
 
