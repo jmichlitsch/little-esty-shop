@@ -24,4 +24,9 @@ describe "merchant bulk discounts index page" do
       visit merchant_bulk_discounts_path(@merchant.id)
     end
   end
+
+  it "has a link to create a new discount" do
+    click_on "New Discount"
+    expect(current_path).to eq(new_merchant_bulk_discount_path(@merchant.id))
+  end
 end
