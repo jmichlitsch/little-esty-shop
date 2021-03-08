@@ -29,4 +29,10 @@ describe "merchant bulk discounts index page" do
     click_on "New Discount"
     expect(current_path).to eq(new_merchant_bulk_discount_path(@merchant.id))
   end
+
+  it "has a link to edit the discount's properties" do
+    visit merchant_bulk_discount_path(@merchant.id, @discounts[0].id)
+    click_on "Edit Discount"
+    expect(current_path).to eq(edit_merchant_bulk_discount_path(@merchant.id,@discount[0].id))
+  end
 end
