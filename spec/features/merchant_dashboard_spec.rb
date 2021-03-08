@@ -33,6 +33,7 @@ RSpec.describe "Merchant Dashboard" do
     @invoice_item_3 = create(:invoice_item, item_id: @item2.id, invoice_id: @invoice_3.id, status: 1)
     @invoice_item_4 = create(:invoice_item, item_id: @item2.id, invoice_id: @invoice_4.id, status: 2)
     @invoice_item_5 = create(:invoice_item, item_id: @item1.id, invoice_id: @invoice_5.id, status: 0)
+    @discounts = create_list(:bulk_discount,5,merchant_id: @merchant1.id)
   end
 
   describe "When I visit my merchant dashboard (/merchant/merchant_id/dashboard)" do
