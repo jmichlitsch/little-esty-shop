@@ -53,7 +53,7 @@ gem 'faraday'
 gem "figaro"
 
 group :test do
-  gem 'webmock'
+  # gem 'webmock'
 end
 
 group :development do
