@@ -5,4 +5,8 @@ class BulkDiscount < ApplicationRecord
   def disable
     update(active: false)
   end
+
+  def enable
+    update(active: true)
+  end
 end
