@@ -32,6 +32,7 @@
             <%= form.button "Update Item Status" %>
           <% end %></td>
         </tr>
+        <%= link_to "#{invoice_item.best_discount.percent_off}%", merchant_bulk_discount_path(@merchant, invoice_item.best_discount.id) %><br>
     <% end %>
   </table>
 </section>
