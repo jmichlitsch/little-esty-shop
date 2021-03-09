@@ -19,8 +19,16 @@ class InvoiceItem < ApplicationRecord
     .first
   end
 
+  def revenue
+    quantity * unit_price
+  end
+
   def take_off
     return 0 if best_discount.nil?
     best_discount.item_quantity * (unit_price * (best_discount.percent_off/100))
+  end
+
+  def final_revenue
+      revenue - take_off
   end
 end

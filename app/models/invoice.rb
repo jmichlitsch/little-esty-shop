@@ -9,6 +9,10 @@ class Invoice < ApplicationRecord
     invoice_items.calculate_revenue
   end
 
+  def total_revenue_with_discount
+    invoice_items.sum(&:final_revenue)
+  end
+
   def self.not_shipped
     joins(:invoice_items)
     .where("invoice_items.status = 0 OR invoice_items.status = 1")

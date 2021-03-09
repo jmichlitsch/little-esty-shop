@@ -20,7 +20,7 @@ class Merchant < ApplicationRecord
   end
 
   def total_revenue
-    invoice_items.calculate_revenue
+    invoice_items.final_revenue
   end
 
   def highest_revenue_date
