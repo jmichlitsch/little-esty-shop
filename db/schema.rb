@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_212655) do
+ActiveRecord::Schema.define(version: 2021_03_09_191902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(version: 2021_03_08_212655) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bulk_discount_id"
-    t.index ["bulk_discount_id"], name: "index_invoice_items_on_bulk_discount_id"
     t.index ["invoice_id"], name: "index_invoice_items_on_invoice_id"
     t.index ["item_id"], name: "index_invoice_items_on_item_id"
   end
@@ -79,9 +77,9 @@ ActiveRecord::Schema.define(version: 2021_03_08_212655) do
     t.datetime "updated_at", null: false
     t.index ["invoice_id"], name: "index_transactions_on_invoice_id"
   end
-
+  ii = Item.first.invoice_items.first
+  discount = BulkDiscount.new(merchant_id: 1, item_quantity:1, percent_off: 20)
   add_foreign_key "bulk_discounts", "merchants"
-  add_foreign_key "invoice_items", "bulk_discounts"
   add_foreign_key "invoice_items", "invoices"
   add_foreign_key "invoice_items", "items"
   add_foreign_key "invoices", "customers"
