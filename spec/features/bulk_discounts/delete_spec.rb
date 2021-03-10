@@ -16,7 +16,6 @@ RSpec.describe "Bulk Discount Destroy" do
         click_on "Delete"
         expect(current_path).to eq("/merchant/#{@merchant.id}/bulk_discounts")
       end
-      save_and_open_page
       expect(page).to_not have_content(@discount1.percent_off)
       expect(page).to have_content(@discount2.percent_off)
     end

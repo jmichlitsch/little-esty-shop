@@ -39,7 +39,7 @@ describe "merchant bulk discounts index page" do
   it "has a link to delete the discount next to each discount which disables it" do
     @discounts.each do |discount|
       within("#discount-#{discount.id}") do
-        click_on "Delete Discount"
+        click_on "Delete"
       end
     end
   end
