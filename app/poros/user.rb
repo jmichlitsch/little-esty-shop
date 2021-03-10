@@ -8,6 +8,7 @@ class User
   def get_contributors(data)
     contributors = {}
     data.each do |contributor|
+      # binding.pry
       contributors[contributor[:login]] = contributor[:contributions]
     end
     contributors
