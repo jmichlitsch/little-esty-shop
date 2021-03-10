@@ -7,6 +7,7 @@ describe 'Admin Invoice Show Page' do
     @item1 = create(:item, merchant_id: @merchant.id)
     @item2 = create(:item, merchant_id: @merchant.id)
     @invoice_item1 = create(:invoice_item, invoice_id: @invoice.id, item_id: @item1.id)
+    @discount = BulkDiscount.create!(merchant_id: @merchant.id, item_quantity: 1, percent_off: 20)
   end
 
   it 'Sees Invoice and attributes' do

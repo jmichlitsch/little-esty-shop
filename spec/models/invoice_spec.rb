@@ -77,6 +77,11 @@ RSpec.describe Invoice, type: :model do
       it "returns total sum of the invoice_item quanity * invoice_item unit_price " do
         expect(@invoice1.total_revenue.round(2)).to eq(299975.00)
       end
+    describe "#total_revenue_with_discount" do
+      it "returns total sum with discount of the invoice_item quanity * invoice_item unit_price " do
+        expect(@invoice1.total_revenue_with_discount.round(2)).to eq(299975.00)
+        end
+      end
     end
 
     describe "class methods" do

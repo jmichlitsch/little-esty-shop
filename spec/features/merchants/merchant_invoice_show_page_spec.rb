@@ -22,6 +22,7 @@ RSpec.describe "Merchant Invoice Show Page" do
     @not_invoice_item = InvoiceItem.create!(invoice_id: @invoice2.id,
                                        item_id: @not_item.id, quantity: 976,
                                        unit_price: 10.00, status: 1)
+    @discount = BulkDiscount.create!(merchant_id: @merchant.id, item_quantity: 2, percent_off: 20)
   end
   describe "When I visit my merchant's invoice show page(/merchants/merchant_id/invoices/invoice_id)" do
     it "I see the invoice attributes listed" do

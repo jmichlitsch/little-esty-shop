@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_201839) do
+ActiveRecord::Schema.define(version: 2021_03_10_012502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2021_03_09_201839) do
     t.bigint "merchant_id"
     t.integer "item_quantity"
     t.decimal "percent_off"
-    t.boolean "active", default: true
     t.index ["merchant_id"], name: "index_bulk_discounts_on_merchant_id"
   end
 

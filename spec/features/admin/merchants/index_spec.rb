@@ -54,6 +54,14 @@ describe 'Admin Merchant index page' do
     @invoice_item_8 = create(:invoice_item, item_id: @item6.id, invoice_id: @invoice_8.id, status: 0, quantity: 400, unit_price: 90.7)
     @invoice_item_9 = create(:invoice_item, item_id: @item7.id, invoice_id: @invoice_9.id, status: 0, quantity: 185, unit_price: 90.7)
     @invoice_item_10 = create(:invoice_item, item_id: @item8.id, invoice_id: @invoice_11.id, status: 0, quantity: 1, unit_price: 90.7)
+    @discount = BulkDiscount.create!(merchant_id: @merchants[0].id, item_quantity: 1, percent_off: 20)
+    @discount = BulkDiscount.create!(merchant_id: @merchants[1].id, item_quantity: 1, percent_off: 20)
+    @discount = BulkDiscount.create!(merchant_id: @merchants[2].id, item_quantity: 1, percent_off: 20)
+    @discount = BulkDiscount.create!(merchant_id: @merchants[3].id, item_quantity: 1, percent_off: 20)
+    @discount = BulkDiscount.create!(merchant_id: @merchants[4].id, item_quantity: 1, percent_off: 20)
+    @discount = BulkDiscount.create!(merchant_id: @merchants[5].id, item_quantity: 1, percent_off: 20)
+    @discount = BulkDiscount.create!(merchant_id: @merchants[6].id, item_quantity: 1, percent_off: 20)
+    @discount = BulkDiscount.create!(merchant_id: @merchants[7].id, item_quantity: 1, percent_off: 20)
   end
 
   it 'Should list all merchant names' do

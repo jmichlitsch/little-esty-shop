@@ -18,6 +18,7 @@ RSpec.describe Merchant, type: :model do
     @item6 = create(:item, merchant_id: @merchant5.id)
     @item7 = create(:item, merchant_id: @merchant6.id)
     @item8 = create(:item, merchant_id: @merchant1.id)
+    @discount = BulkDiscount.create!(merchant_id: @merchant1.id, item_quantity: 1, percent_off: 20)
 
 
     @customers = []
@@ -60,6 +61,7 @@ RSpec.describe Merchant, type: :model do
     @invoice_item_8 = create(:invoice_item, item_id: @item6.id, invoice_id: @invoice_8.id, status: 0, quantity: 400, unit_price: 90.7)
     @invoice_item_9 = create(:invoice_item, item_id: @item7.id, invoice_id: @invoice_9.id, status: 0, quantity: 185, unit_price: 90.7)
     @invoice_item_10 = create(:invoice_item, item_id: @item8.id, invoice_id: @invoice_11.id, status: 0, quantity: 1, unit_price: 90.7)
+    @discount = BulkDiscount.create!(merchant_id: @merchant1.id, item_quantity: 1, percent_off: 20)
   end
 
   describe "relationships" do
@@ -97,7 +99,8 @@ RSpec.describe Merchant, type: :model do
 
     describe '#total_revenue' do
       it 'totals revenue for merchant' do
-        expect(@merchant1.total_revenue).to eq(6820.68)
+
+        expect(@merchant1.total_revenue).to eq(0.6750204e4)
         expect(@merchant1.invoice_items.calculate_revenue).to eq(6820.68)
       end
     end

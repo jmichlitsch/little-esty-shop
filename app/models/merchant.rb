@@ -20,7 +20,11 @@ class Merchant < ApplicationRecord
   end
 
   def total_revenue
-    invoice_items.final_revenue
+    revenue_array = []
+    invoice_items.each do |ii|
+    revenue_array << ii.final_revenue
+    end
+    revenue_array.sum
   end
 
   def highest_revenue_date

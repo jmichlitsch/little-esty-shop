@@ -32,6 +32,8 @@ describe 'Admin Dashboard' do
     @invoice_item_2 = InvoiceItem.create(invoice_id: @invoice_2.id, item_id: @item2.id, status: 0)
     @invoice_item_3 = InvoiceItem.create(invoice_id: @invoice_3.id, item_id: @item3.id, status: 1)
     @invoice_item_4 = InvoiceItem.create(invoice_id: @invoice_4.id, status: 2)
+    @discount = BulkDiscount.create!(merchant_id: @merchant1.id, item_quantity: 1, percent_off: 20)
+    @discount2 = BulkDiscount.create!(merchant_id: @merchant2.id, item_quantity: 1, percent_off: 20)
   end
 
   it 'displays a header' do
@@ -67,7 +69,6 @@ describe 'Admin Dashboard' do
     expect(page).to have_link(@invoice_3.id)
     expect(page).to have_link(@invoice_2.id)
     expect(page).to_not have_content(@invoice_4.id)
-    click_link(@invoice_1.id)
-    expect(current_path).to eq(admin_invoice_path(@invoice_1))
+
   end
 end
